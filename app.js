@@ -147,7 +147,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     };
 
-    // Inicializar carruseles
-    initCarousel('teaserCarouselTrack', 'teaserCarouselPrev', 'teaserCarouselNext', 'teaserCarouselIndicators');
-    initCarousel('catalogCarouselTrack', 'catalogCarouselPrev', 'catalogCarouselNext', 'catalogCarouselIndicators');
+    // Inicializar carruseles de Aftershaves y Ceras
+    // Página index.html (Teaser)
+    initCarousel('teaserAftershaveCarouselTrack', 'teaserAftershaveCarouselPrev', 'teaserAftershaveCarouselNext', 'teaserAftershaveCarouselIndicators');
+    initCarousel('teaserWaxCarouselTrack', 'teaserWaxCarouselPrev', 'teaserWaxCarouselNext', 'teaserWaxCarouselIndicators');
+
+    // Página productos.html (Catálogo)
+    initCarousel('aftershaveCarouselTrack', 'aftershaveCarouselPrev', 'aftershaveCarouselNext', 'aftershaveCarouselIndicators');
+    initCarousel('waxCarouselTrack', 'waxCarouselPrev', 'waxCarouselNext', 'waxCarouselIndicators');
 });
