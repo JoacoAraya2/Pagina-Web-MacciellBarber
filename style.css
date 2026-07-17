@@ -228,20 +228,48 @@ ul {
 }
 
 .logo-text {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 2.2rem;
-    letter-spacing: 0.25em;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 2.3rem;
+    letter-spacing: 0.28em;
     line-height: 1;
-    margin-right: -0.25em; /* Compensar espaciado final */
+    margin-right: -0.28em; /* Compensar espaciado final */
     text-transform: uppercase;
-    color: var(--color-text-dark);
-    transition: var(--transition-smooth);
+    display: inline-block;
+    position: relative;
+    
+    /* Efecto Metálico HD Glimmer */
+    background: linear-gradient(120deg, #111 25%, #666 40%, #111 55%, #111 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shineLogo 5s linear infinite;
+    
+    transition: letter-spacing 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                margin-right 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.5s ease;
+}
+
+/* Ajuste del brillo cuando el header tiene fondo oscuro (.scrolled) */
+.main-header.scrolled .logo-text {
+    background: linear-gradient(120deg, #111 25%, #777 42%, #111 58%, #111 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .logo-text:hover {
-    letter-spacing: 0.35em;
-    margin-right: -0.35em;
+    letter-spacing: 0.4em;
+    margin-right: -0.4em;
+    transform: scale(1.03);
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes shineLogo {
+    to {
+        background-position: 200% center;
+    }
 }
 
 /* Elementos Móviles en Header */
@@ -595,11 +623,33 @@ ul {
 }
 
 .footer-logo {
-    font-family: var(--font-heading);
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
     font-size: 3.5rem;
-    font-weight: 800;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.32em;
+    margin-right: -0.32em;
     margin-bottom: 1rem;
+    text-transform: uppercase;
+    display: inline-block;
+    
+    /* Glimmer Metálico Blanco/Plata */
+    background: linear-gradient(120deg, #fff 25%, #888 40%, #fff 55%, #fff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shineLogo 5s linear infinite;
+    
+    transition: letter-spacing 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                margin-right 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.5s ease;
+}
+
+.footer-logo:hover {
+    letter-spacing: 0.42em;
+    margin-right: -0.42em;
+    transform: scale(1.03);
+    filter: drop-shadow(0 2px 12px rgba(255, 255, 255, 0.15));
 }
 
 .footer-tagline {
