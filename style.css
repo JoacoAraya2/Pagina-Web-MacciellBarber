@@ -897,9 +897,13 @@ ul {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2.5rem;
     margin-bottom: 4rem;
+    justify-content: center;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .product-card {
@@ -920,18 +924,19 @@ ul {
 .product-image-box {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 1 / 1;
-    background-color: #fafafa;
+    height: 240px;
+    background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    padding: 1.5rem;
 }
 
 .product-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
     transition: var(--transition-smooth);
 }
 
@@ -1010,10 +1015,14 @@ ul {
 
 .catalog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     margin-bottom: 5rem;
     margin-top: 4rem;
+    justify-content: center;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn-buy {
