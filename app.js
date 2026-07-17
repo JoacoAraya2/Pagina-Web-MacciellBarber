@@ -155,4 +155,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Página productos.html (Catálogo)
     initCarousel('aftershaveCarouselTrack', 'aftershaveCarouselPrev', 'aftershaveCarouselNext', 'aftershaveCarouselIndicators');
     initCarousel('waxCarouselTrack', 'waxCarouselPrev', 'waxCarouselNext', 'waxCarouselIndicators');
+
+    // 5. Efecto Parallax en la Imagen Hero
+    const heroImage = document.querySelector('.hero-image');
+    if (heroImage) {
+        window.addEventListener('scroll', () => {
+            const scrollValue = window.scrollY;
+            heroImage.style.transform = `translateY(${scrollValue * 0.15}px) scale(1.08)`;
+        }, { passive: true });
+    }
 });
