@@ -1,6 +1,6 @@
-# MaccielBarber - Landing Page Premium
+# MacciellBarber - Landing Page Premium
 
-Este es un proyecto web minimalista y elegante para la barbería **MaccielBarber**. Diseñado con una estética monocromática inspirada en la moda y el comercio electrónico de alta gama.
+Este es un proyecto web minimalista y elegante para la barbería **MacciellBarber**. Diseñado con una estética monocromática inspirada en la moda y el comercio electrónico de alta gama.
 
 ## Características
 
@@ -13,7 +13,7 @@ Este es un proyecto web minimalista y elegante para la barbería **MaccielBarber
 ## Estructura del Proyecto
 
 ```text
-maccielbarber-web/
+macciellbarber-web/
 ├── assets/          # Imágenes de barbería de alta calidad (generadas)
 ├── index.html       # Estructura de la Landing Page
 ├── style.css        # Hoja de estilos con variables y CSS Grid/Flexbox
@@ -27,4 +27,4 @@ maccielbarber-web/
 2. O inicia un servidor local (por ejemplo, con la extensión *Live Server* de VS Code o ejecutando `npx serve .` en la terminal).
 
 ---
-*Desarrollado con ❤️ para MaccielBarber.*
+*Desarrollado con ❤️ para MacciellBarber.*
