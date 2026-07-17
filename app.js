@@ -67,4 +67,87 @@ document.addEventListener('DOMContentLoaded', () => {
             el.classList.add('revealed');
         });
     }
+    // 4. Inicializador de Carrusel de Productos
+    const initCarousel = (trackId, prevBtnId, nextBtnId, indicatorsContainerId) => {
+        const track = document.getElementById(trackId);
+        const prevBtn = document.getElementById(prevBtnId);
+        const nextBtn = document.getElementById(nextBtnId);
+        const indicatorsContainer = document.getElementById(indicatorsContainerId);
+
+        if (!track || !prevBtn || !nextBtn) return;
+
+        const items = track.querySelectorAll('.product-carousel-item');
+        const totalSlides = items.length;
+        let currentIndex = 0;
+
+        // Indicadores
+        let indicators = [];
+        if (indicatorsContainer) {
+            indicators = indicatorsContainer.querySelectorAll('.indicator');
+        }
+
+        const updateCarousel = (index) => {
+            if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else if (index >= totalSlides) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+
+            // Desplazar track
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            // Actualizar indicadores
+            indicators.forEach((ind, i) => {
+                if (i === currentIndex) {
+                    ind.classList.add('active');
+                } else {
+                    ind.classList.remove('active');
+                }
+            });
+        };
+
+        // Eventos botones
+        prevBtn.addEventListener('click', () => {
+            updateCarousel(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            updateCarousel(currentIndex + 1);
+        });
+
+        // Eventos indicadores
+        indicators.forEach((ind, i) => {
+            ind.addEventListener('click', () => {
+                updateCarousel(i);
+            });
+        });
+
+        // Soporte Swipe táctil
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleGesture();
+        }, { passive: true });
+
+        const handleGesture = () => {
+            const swipeThreshold = 50;
+            if (touchStartX - touchEndX > swipeThreshold) {
+                updateCarousel(currentIndex + 1);
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                updateCarousel(currentIndex - 1);
+            }
+        };
+    };
+
+    // Inicializar carruseles
+    initCarousel('teaserCarouselTrack', 'teaserCarouselPrev', 'teaserCarouselNext', 'teaserCarouselIndicators');
+    initCarousel('catalogCarouselTrack', 'catalogCarouselPrev', 'catalogCarouselNext', 'catalogCarouselIndicators');
 });

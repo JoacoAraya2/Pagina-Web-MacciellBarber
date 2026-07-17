@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos | Macciell</title>
-    <meta name="description" content="Productos de barbería premium exclusivos de Macciell. After Shave y cera pasta mate Nishman para mantener tu estilo todos los días.">
+    <meta name="description" content="Productos de barbería premium exclusivos de Macciell. After Shave y ceras Nishman para mantener tu estilo todos los días.">
     <!-- Google Fonts: Outfit (Titulares) e Inter (Texto de cuerpo) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,50 +65,117 @@
                 <div class="section-header scroll-reveal">
                     <span class="section-subtitle">PRODUCTOS ORIGINALES</span>
                     <h1 class="section-title">NISHMAN PREMIUM</h1>
-                    <p class="section-description">Línea de cuidado y estilizado profesional Nishman. Consúltanos por WhatsApp para asegurar tu producto o retirar directamente en nuestra barbería.</p>
+                    <p class="section-description">Línea de cuidado y estilizado profesional Nishman. Desliza para explorar las diferentes opciones disponibles y consúltanos por WhatsApp para comprar.</p>
                 </div>
 
-                <div class="catalog-grid">
-                    <!-- Producto 1 -->
-                    <div class="product-card scroll-reveal">
-                        <div class="product-image-box">
-                            <img src="assets/product_nishman_aftershave.jpg" alt="After Shave Nishman 01 Antarctica" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-category">POST-AFEITADO</span>
-                            <h2 class="product-name">After Shave Nishman 01 Antarctica</h2>
-                            <p class="product-desc">Colonia refrescante y calmante post-afeitado. Diseñada para aliviar la piel recién rasurada, cerrar poros y brindar un aroma fresco a menta y frío polar de larga duración (400ml).</p>
-                            <p class="product-price">$12.990</p>
-                            <a href="https://api.whatsapp.com/send?phone=56996155254&text=Hola%20Macciell%20Barber%20%F0%9F%92%88%2C%20me%20interesa%20comprar%20el%20producto%3A%20After%20Shave%20Nishman%2001%20Antarctica.%0A%0A%F0%9F%91%A4%20Mi%20Nombre%3A%0A%F0%9F%93%85%20D%C3%ADa%20de%20retiro%2Fentrega%3A%0A%F0%9F%95%90%20Hora%20de%20retiro%2Fentrega%3A" target="_blank" class="btn-solid btn-block btn-buy">
-                                COMPRAR POR WHATSAPP
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.58.413 3.126 1.198 4.488L3 21.116l4.759-1.248a8.93 8.93 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.922 8.922 0 0 0-2.627-6.35zM12.053 19.432h-.003a7.447 7.447 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 0 1 5.281 2.19 7.421 7.421 0 0 1 2.186 5.276c-.002 4.115-3.348 7.462-7.47 7.462zm4.093-5.592c-.224-.113-1.327-.655-1.533-.73-.205-.075-.355-.112-.505.113-.15.225-.58.73-.711.88-.13.151-.26.169-.485.056-.225-.113-.949-.35-1.808-1.117-.668-.596-1.12-1.332-1.251-1.557-.13-.225-.014-.347.099-.46.101-.102.224-.263.336-.394.112-.132.149-.225.224-.375.075-.15.037-.282-.019-.394-.056-.113-.505-1.217-.692-1.666-.181-.437-.363-.377-.505-.385-.13-.006-.28-.006-.43-.006s-.393.056-.599.282c-.206.225-.786.768-.786 1.873s.804 2.173.916 2.323c.112.15 1.58 2.413 3.829 3.383.535.23 1.011.383 1.357.493.538.171 1.027.147 1.413.09.431-.064 1.327-.543 1.514-1.068.187-.525.187-.975.131-1.069-.056-.094-.206-.15-.43-.263z"/>
-                                </svg>
-                            </a>
+                <!-- Products Carousel -->
+                <div class="products-carousel-container scroll-reveal" style="margin-top: 4rem;">
+                    <div class="products-carousel-wrapper">
+                        <div class="products-carousel-track" id="catalogCarouselTrack">
+                            <!-- Producto 1 -->
+                            <div class="product-carousel-item">
+                                <div class="product-card">
+                                    <div class="product-image-box">
+                                        <img src="assets/product_nishman_aftershave.jpg" alt="After Shave Nishman 01 Antarctica" class="product-img">
+                                    </div>
+                                    <div class="product-info">
+                                        <span class="product-category">POST-AFEITADO - ANTARCTICA</span>
+                                        <h2 class="product-name">After Shave Nishman 01</h2>
+                                        <p class="product-desc">Colonia refrescante y calmante. Alivia la irritación post-afeitado, cierra poros y deja una fragancia helada de larga duración (400ml).</p>
+                                        <p class="product-price">$12.990</p>
+                                        <a href="https://api.whatsapp.com/send?phone=56996155254&text=Hola%20Macciell%20Barber%20%F0%9F%92%88%2C%20me%20interesa%20comprar%20el%20producto%3A%20After%20Shave%20Nishman%2001%20Antarctica.%0A%0A%F0%9F%91%A4%20Mi%20Nombre%3A%0A%F0%9F%93%85%20D%C3%ADa%20de%20retiro%2Fentrega%3A%0A%F0%9F%95%90%20Hora%20de%20retiro%2Fentrega%3A" target="_blank" class="btn-solid btn-block btn-buy">
+                                            COMPRAR POR WHATSAPP
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.58.413 3.126 1.198 4.488L3 21.116l4.759-1.248a8.93 8.93 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.922 8.922 0 0 0-2.627-6.35zM12.053 19.432h-.003a7.447 7.447 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 0 1 5.281 2.19 7.421 7.421 0 0 1 2.186 5.276c-.002 4.115-3.348 7.462-7.47 7.462zm4.093-5.592c-.224-.113-1.327-.655-1.533-.73-.205-.075-.355-.112-.505.113-.15.225-.58.73-.711.88-.13.151-.26.169-.485.056-.225-.113-.949-.35-1.808-1.117-.668-.596-1.12-1.332-1.251-1.557-.13-.225-.014-.347.099-.46.101-.102.224-.263.336-.394.112-.132.149-.225.224-.375.075-.15.037-.282-.019-.394-.056-.113-.505-1.217-.692-1.666-.181-.437-.363-.377-.505-.385-.13-.006-.28-.006-.43-.006s-.393.056-.599.282c-.206.225-.786.768-.786 1.873s.804 2.173.916 2.323c.112.15 1.58 2.413 3.829 3.383.535.23 1.011.383 1.357.493.538.171 1.027.147 1.413.09.431-.064 1.327-.543 1.514-1.068.187-.525.187-.975.131-1.069-.056-.094-.206-.15-.43-.263z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Producto 2 -->
+                            <div class="product-carousel-item">
+                                <div class="product-card">
+                                    <div class="product-image-box">
+                                        <img src="assets/product_nishman_aftershave_volcano.png" alt="After Shave Nishman 05 Volcano" class="product-img">
+                                    </div>
+                                    <div class="product-info">
+                                        <span class="product-category">POST-AFEITADO - VOLCANO</span>
+                                        <h2 class="product-name">After Shave Nishman 05</h2>
+                                        <p class="product-desc">Colonia refrescante y calmante post-afeitado. Fragancia Volcano de larga duración con notas cálidas y amaderadas (400ml).</p>
+                                        <p class="product-price">$12.990</p>
+                                        <a href="https://api.whatsapp.com/send?phone=56996155254&text=Hola%20Macciell%20Barber%20%F0%9F%92%88%2C%20me%20interesa%20comprar%20el%20producto%3A%20After%20Shave%20Nishman%2005%20Volcano.%0A%0A%F0%9F%91%A4%20Mi%20Nombre%3A%0A%F0%9F%93%85%20D%C3%ADa%20de%20retiro%2Fentrega%3A%0A%F0%9F%95%90%20Hora%20de%20retiro%2Fentrega%3A" target="_blank" class="btn-solid btn-block btn-buy">
+                                            COMPRAR POR WHATSAPP
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.58.413 3.126 1.198 4.488L3 21.116l4.759-1.248a8.93 8.93 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.922 8.922 0 0 0-2.627-6.35zM12.053 19.432h-.003a7.447 7.447 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 0 1 5.281 2.19 7.421 7.421 0 0 1 2.186 5.276c-.002 4.115-3.348 7.462-7.47 7.462zm4.093-5.592c-.224-.113-1.327-.655-1.533-.73-.205-.075-.355-.112-.505.113-.15.225-.58.73-.711.88-.13.151-.26.169-.485.056-.225-.113-.949-.35-1.808-1.117-.668-.596-1.12-1.332-1.251-1.557-.13-.225-.014-.347.099-.46.101-.102.224-.263.336-.394.112-.132.149-.225.224-.375.075-.15.037-.282-.019-.394-.056-.113-.505-1.217-.692-1.666-.181-.437-.363-.377-.505-.385-.13-.006-.28-.006-.43-.006s-.393.056-.599.282c-.206.225-.786.768-.786 1.873s.804 2.173.916 2.323c.112.15 1.58 2.413 3.829 3.383.535.23 1.011.383 1.357.493.538.171 1.027.147 1.413.09.431-.064 1.327-.543 1.514-1.068.187-.525.187-.975.131-1.069-.056-.094-.206-.15-.43-.263z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Producto 3 -->
+                            <div class="product-carousel-item">
+                                <div class="product-card">
+                                    <div class="product-image-box">
+                                        <img src="assets/product_nishman_wax.jpg" alt="Cera Pasta Mate Nishman M1" class="product-img">
+                                    </div>
+                                    <div class="product-info">
+                                        <span class="product-category">ESTILIZADO - M1 ARGAN</span>
+                                        <h2 class="product-name">Cera Pasta Mate Nishman M1</h2>
+                                        <p class="product-desc">Cera mate original infusionada con aceite de argán. Fijación alta y natural sin brillo para estructurar tu peinado (100ml).</p>
+                                        <p class="product-price">$9.990</p>
+                                        <a href="https://api.whatsapp.com/send?phone=56996155254&text=Hola%20Macciell%20Barber%20%F0%9F%92%88%2C%20me%20interesa%20comprar%20el%20producto%3A%20Cera%20Pasta%20Mate%20Nishman%20M1.%0A%0A%F0%9F%91%A4%20Mi%20Nombre%3A%0A%F0%9F%93%85%20D%C3%ADa%20de%20retiro%2Fentrega%3A%0A%F0%9F%95%90%20Hora%20de%20retiro%2Fentrega%3A" target="_blank" class="btn-solid btn-block btn-buy">
+                                            COMPRAR POR WHATSAPP
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.58.413 3.126 1.198 4.488L3 21.116l4.759-1.248a8.93 8.93 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.922 8.922 0 0 0-2.627-6.35zM12.053 19.432h-.003a7.447 7.447 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 0 1 5.281 2.19 7.421 7.421 0 0 1 2.186 5.276c-.002 4.115-3.348 7.462-7.47 7.462zm4.093-5.592c-.224-.113-1.327-.655-1.533-.73-.205-.075-.355-.112-.505.113-.15.225-.58.73-.711.88-.13.151-.26.169-.485.056-.225-.113-.949-.35-1.808-1.117-.668-.596-1.12-1.332-1.251-1.557-.13-.225-.014-.347.099-.46.101-.102.224-.263.336-.394.112-.132.149-.225.224-.375.075-.15.037-.282-.019-.394-.056-.113-.505-1.217-.692-1.666-.181-.437-.363-.377-.505-.385-.13-.006-.28-.006-.43-.006s-.393.056-.599.282c-.206.225-.786.768-.786 1.873s.804 2.173.916 2.323c.112.15 1.58 2.413 3.829 3.383.535.23 1.011.383 1.357.493.538.171 1.027.147 1.413.09.431-.064 1.327-.543 1.514-1.068.187-.525.187-.975.131-1.069-.056-.094-.206-.15-.43-.263z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Producto 4 -->
+                            <div class="product-carousel-item">
+                                <div class="product-card">
+                                    <div class="product-image-box">
+                                        <img src="assets/product_nishman_wax_m2.png" alt="Cera Pasta Nishman M2" class="product-img">
+                                    </div>
+                                    <div class="product-info">
+                                        <span class="product-category">ESTILIZADO - M2 DEFINING</span>
+                                        <h2 class="product-name">Cera Pasta Nishman M2</h2>
+                                        <p class="product-desc">Cera mate original en lata roja M2. Proporciona una fijación alta y flexible sin brillo para moldear estilos rebeldes y modernos (100ml).</p>
+                                        <p class="product-price">$9.990</p>
+                                        <a href="https://api.whatsapp.com/send?phone=56996155254&text=Hola%20Macciell%20Barber%20%F0%9F%92%88%2C%20me%20interesa%20comprar%20el%20producto%3A%20Cera%20Pasta%20Nishman%20M2.%0A%0A%F0%9F%91%A4%20Mi%20Nombre%3A%0A%F0%9F%93%85%20D%C3%ADa%20de%20retiro%2Fentrega%3A%0A%F0%9F%95%90%20Hora%20de%20retiro%2Fentrega%3A" target="_blank" class="btn-solid btn-block btn-buy">
+                                            COMPRAR POR WHATSAPP
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.58.413 3.126 1.198 4.488L3 21.116l4.759-1.248a8.93 8.93 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.922 8.922 0 0 0-2.627-6.35zM12.053 19.432h-.003a7.447 7.447 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 0 1 5.281 2.19 7.421 7.421 0 0 1 2.186 5.276c-.002 4.115-3.348 7.462-7.47 7.462zm4.093-5.592c-.224-.113-1.327-.655-1.533-.73-.205-.075-.355-.112-.505.113-.15.225-.58.73-.711.88-.13.151-.26.169-.485.056-.225-.113-.949-.35-1.808-1.117-.668-.596-1.12-1.332-1.251-1.557-.13-.225-.014-.347.099-.46.101-.102.224-.263.336-.394.112-.132.149-.225.224-.375.075-.15.037-.282-.019-.394-.056-.113-.505-1.217-.692-1.666-.181-.437-.363-.377-.505-.385-.13-.006-.28-.006-.43-.006s-.393.056-.599.282c-.206.225-.786.768-.786 1.873s.804 2.173.916 2.323c.112.15 1.58 2.413 3.829 3.383.535.23 1.011.383 1.357.493.538.171 1.027.147 1.413.09.431-.064 1.327-.543 1.514-1.068.187-.525.187-.975.131-1.069-.056-.094-.206-.15-.43-.263z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    
+                    <!-- Controles -->
+                    <button class="carousel-control prev" id="catalogCarouselPrev" aria-label="Producto anterior">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button class="carousel-control next" id="catalogCarouselNext" aria-label="Producto siguiente">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
 
-                    <!-- Producto 2 -->
-                    <div class="product-card scroll-reveal">
-                        <div class="product-image-box">
-                            <img src="assets/product_nishman_wax.jpg" alt="Cera Pasta Mate Nishman M1" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-category">ESTILIZADO</span>
-                            <h2 class="product-name">Cera Pasta Mate Nishman M1</h2>
-                            <p class="product-desc">Cera moldeadora de acabado mate natural con infusión de aceite de argán. Otorga una fijación alta y duradera que mantiene el cabello estructurado durante todo el día (100ml).</p>
-                            <p class="product-price">$9.990</p>
-                            <a href="https://api.whatsapp.com/send?phone=56996155254&text=Hola%20Macciell%20Barber%20%F0%9F%92%88%2C%20me%20interesa%20comprar%20el%20producto%3A%20Cera%20Pasta%20Mate%20Nishman%20M1.%0A%0A%F0%9F%91%A4%20Mi%20Nombre%3A%0A%F0%9F%93%85%20D%C3%ADa%20de%20retiro%2Fentrega%3A%0A%F0%9F%95%90%20Hora%20de%20retiro%2Fentrega%3A" target="_blank" class="btn-solid btn-block btn-buy">
-                                COMPRAR POR WHATSAPP
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.58.413 3.126 1.198 4.488L3 21.116l4.759-1.248a8.93 8.93 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.922 8.922 0 0 0-2.627-6.35zM12.053 19.432h-.003a7.447 7.447 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 0 1 5.281 2.19 7.421 7.421 0 0 1 2.186 5.276c-.002 4.115-3.348 7.462-7.47 7.462zm4.093-5.592c-.224-.113-1.327-.655-1.533-.73-.205-.075-.355-.112-.505.113-.15.225-.58.73-.711.88-.13.151-.26.169-.485.056-.225-.113-.949-.35-1.808-1.117-.668-.596-1.12-1.332-1.251-1.557-.13-.225-.014-.347.099-.46.101-.102.224-.263.336-.394.112-.132.149-.225.224-.375.075-.15.037-.282-.019-.394-.056-.113-.505-1.217-.692-1.666-.181-.437-.363-.377-.505-.385-.13-.006-.28-.006-.43-.006s-.393.056-.599.282c-.206.225-.786.768-.786 1.873s.804 2.173.916 2.323c.112.15 1.58 2.413 3.829 3.383.535.23 1.011.383 1.357.493.538.171 1.027.147 1.413.09.431-.064 1.327-.543 1.514-1.068.187-.525.187-.975.131-1.069-.056-.094-.206-.15-.43-.263z"/>
-                                </svg>
-                            </a>
-                        </div>
+                    <!-- Indicadores -->
+                    <div class="carousel-indicators" id="catalogCarouselIndicators">
+                        <span class="indicator active" data-slide="0"></span>
+                        <span class="indicator" data-slide="1"></span>
+                        <span class="indicator" data-slide="2"></span>
+                        <span class="indicator" data-slide="3"></span>
                     </div>
                 </div>
-                
-                <div class="products-back-link">
+
+                <div class="products-back-link" style="margin-top: 4rem;">
                     <a href="index.html" class="btn-outline">&larr; Volver al inicio</a>
                 </div>
             </div>
