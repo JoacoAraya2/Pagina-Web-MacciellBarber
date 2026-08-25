@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Fondo circular oscuro de lujo -->
+  <circle cx="32" cy="32" r="30" fill="#09090b" stroke="#c5a059" stroke-width="2.5" />
+  
+  <!-- Símbolo Poste de Barbería / Tijeras de Oro -->
+  <!-- Poste de barbería estilizado -->
+  <g transform="translate(16, 12)">
+    <!-- Barra superior/inferior dorada -->
+    <rect x="10" y="2" width="12" height="3" rx="1.5" fill="#c5a059" />
+    <circle cx="16" cy="1" r="2.5" fill="#c5a059" />
+    <rect x="10" y="35" width="12" height="3" rx="1.5" fill="#c5a059" />
+    <circle cx="16" cy="39" r="2.5" fill="#c5a059" />
+
+    <!-- Cilindro de cristal con franjas clásicas de barbería -->
+    <rect x="11.5" y="5" width="9" height="30" rx="4.5" fill="#ffffff" stroke="#c5a059" stroke-width="1" />
+    
+    <!-- Franjas diagonales (Rojo, Azul, Oro) con máscara o paths -->
+    <g clip-path="url(#cylinderClip)">
+      <path d="M7 6 L25 18" stroke="#dc2626" stroke-width="4.5" />
+      <path d="M7 16 L25 28" stroke="#2563eb" stroke-width="4.5" />
+      <path d="M7 26 L25 38" stroke="#dc2626" stroke-width="4.5" />
+      <path d="M7 -4 L25 8" stroke="#2563eb" stroke-width="4.5" />
+    </g>
+  </g>
+
+  <!-- Definición de clip path para el cilindro -->
+  <defs>
+    <clipPath id="cylinderClip">
+      <rect x="11.5" y="5" width="9" height="30" rx="4.5" />
+    </clipPath>
+  </defs>
+</svg>
