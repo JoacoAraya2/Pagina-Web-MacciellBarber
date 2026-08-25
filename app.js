@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     // 4. Inicializador de Carrusel de Productos
-    const initCarousel = (trackId, prevBtnId, nextBtnId, indicatorsContainerId) => {
+    const initCarousel = (trackId, prevBtnId, nextBtnId, indicatorsContainerId, autoplayMs = 0) => {
         const track = document.getElementById(trackId);
         const prevBtn = document.getElementById(prevBtnId);
         const nextBtn = document.getElementById(nextBtnId);
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!track || !prevBtn || !nextBtn) return;
 
-        const items = track.querySelectorAll('.product-carousel-item');
+        const items = track.querySelectorAll('.product-carousel-item, .testimonial-slide');
         const totalSlides = items.length;
         let currentIndex = 0;
 
@@ -145,6 +145,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateCarousel(currentIndex - 1);
             }
         };
+
+        // Autoplay logic
+        if (autoplayMs > 0) {
+            let autoplayInterval = setInterval(() => {
+                updateCarousel(currentIndex + 1);
+            }, autoplayMs);
+
+            const resetAutoplay = () => {
+                clearInterval(autoplayInterval);
+                autoplayInterval = setInterval(() => {
+                    updateCarousel(currentIndex + 1);
+                }, autoplayMs);
+            };
+
+            prevBtn.addEventListener('click', resetAutoplay);
+            nextBtn.addEventListener('click', resetAutoplay);
+            if (indicatorsContainer) {
+                indicators.forEach(ind => ind.addEventListener('click', resetAutoplay));
+            }
+            track.addEventListener('touchstart', () => clearInterval(autoplayInterval), { passive: true });
+            track.addEventListener('touchend', resetAutoplay, { passive: true });
+        }
     };
 
     // Inicializar carruseles de Aftershaves y Ceras
@@ -156,6 +178,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initCarousel('aftershaveCarouselTrack', 'aftershaveCarouselPrev', 'aftershaveCarouselNext', 'aftershaveCarouselIndicators');
     initCarousel('waxCarouselTrack', 'waxCarouselPrev', 'waxCarouselNext', 'waxCarouselIndicators');
 
+    // Carrusel de Testimonios (con Autoplay de 5 segundos)
+    initCarousel('testimonialsTrack', 'testimonialsPrev', 'testimonialsNext', 'testimonialsIndicators', 5000);
+
     // 5. Efecto Parallax en la Imagen Hero
     const heroImage = document.querySelector('.hero-image');
     if (heroImage) {
@@ -163,5 +188,113 @@ document.addEventListener('DOMContentLoaded', () => {
             const scrollValue = window.scrollY;
             heroImage.style.transform = `translateY(${scrollValue * 0.15}px) scale(1.08)`;
         }, { passive: true });
+    }
+
+    // 6. Lógica de Lightbox de la Galería
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxCloseBtn');
+    const lightboxPrev = document.getElementById('lightboxPrevBtn');
+    const lightboxNext = document.getElementById('lightboxNextBtn');
+
+    if (galleryItems.length > 0 && lightbox) {
+        let currentImgIndex = 0;
+        const imagesList = [];
+
+        // Registrar las imágenes de la galería
+        galleryItems.forEach((item, index) => {
+            const img = item.querySelector('.gallery-img');
+            const caption = item.querySelector('.gallery-info span') ? item.querySelector('.gallery-info span').textContent : '';
+            if (img) {
+                imagesList.push({
+                    src: img.getAttribute('src'),
+                    alt: img.getAttribute('alt'),
+                    caption: caption
+                });
+
+                // Abrir lightbox al hacer click
+                item.addEventListener('click', () => {
+                    currentImgIndex = index;
+                    openLightbox(currentImgIndex);
+                });
+            }
+        });
+
+        const openLightbox = (index) => {
+            const item = imagesList[index];
+            if (!item) return;
+
+            lightboxImg.setAttribute('src', item.src);
+            lightboxImg.setAttribute('alt', item.alt);
+            lightboxCaption.textContent = item.caption;
+
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden'; // Detener scroll de fondo
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = ''; // Restaurar scroll
+            // Limpiar src para evitar parpadeo la próxima vez
+            setTimeout(() => {
+                lightboxImg.setAttribute('src', '');
+            }, 300);
+        };
+
+        const showNextImg = () => {
+            currentImgIndex = (currentImgIndex + 1) % imagesList.length;
+            updateLightboxContent(currentImgIndex);
+        };
+
+        const showPrevImg = () => {
+            currentImgIndex = (currentImgIndex - 1 + imagesList.length) % imagesList.length;
+            updateLightboxContent(currentImgIndex);
+        };
+
+        const updateLightboxContent = (index) => {
+            const item = imagesList[index];
+            if (!item) return;
+
+            // Efecto suave de transición de imagen
+            lightboxImg.style.opacity = '0';
+            lightboxImg.style.transform = 'scale(0.95)';
+
+            setTimeout(() => {
+                lightboxImg.setAttribute('src', item.src);
+                lightboxImg.setAttribute('alt', item.alt);
+                lightboxCaption.textContent = item.caption;
+                lightboxImg.style.opacity = '1';
+                lightboxImg.style.transform = 'scale(1)';
+            }, 250);
+        };
+
+        // Eventos
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxNext.addEventListener('click', showNextImg);
+        lightboxPrev.addEventListener('click', showPrevImg);
+
+        // Cerrar al hacer click fuera de la imagen
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target === lightbox.querySelector('.lightbox-content-wrapper')) {
+                closeLightbox();
+            }
+        });
+
+        // Navegación con teclado
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowRight') {
+                showNextImg();
+            } else if (e.key === 'ArrowLeft') {
+                showPrevImg();
+            }
+        });
     }
 });

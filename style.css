@@ -4,24 +4,36 @@
 
 /* Variables y Variables de Diseño */
 :root {
-    /* Paleta de Colores */
-    --color-bg-light: #f6f5f2;      /* Gris cálido muy claro (fondo principal) */
-    --color-bg-white: #ffffff;      /* Blanco puro */
-    --color-bg-dark: #0f0f0f;       /* Negro profundo suave */
-    --color-bg-darker: #080808;     /* Negro absoluto para contrastes */
-    
-    --color-text-dark: #1a1a1a;     /* Negro suave para texto */
-    --color-text-muted: #666666;    /* Gris medio para descripciones */
-    --color-text-light: #ffffff;    /* Blanco para textos sobre oscuro */
-    --color-text-light-muted: #bbbbbb; /* Gris claro sobre oscuro */
+    /* Paleta de Colores Premium (Luxury Dark Theme) */
+    --color-bg-light: #09090b;
+    /* Negro Obsidiana Profundo (fondo principal) */
+    --color-bg-white: #121216;
+    /* Gris carbón oscuro para tarjetas */
+    --color-bg-dark: #070709;
+    /* Negro ultra profundo para secciones */
+    --color-bg-darker: #040405;
+    /* Fondo de contraste absoluto */
+
+    --color-text-dark: #f4f4f5;
+    /* Blanco crema para titulares */
+    --color-text-muted: #a1a1aa;
+    /* Gris plateado para textos secundarios */
+    --color-text-light: #ffffff;
+    /* Blanco puro */
+    --color-text-light-muted: #d4d4d8;
+    /* Blanco plateado suave */
 
     /* Acentos de Lujo (Oro / Champagne) */
-    --color-accent: #1a1a1a;
-    --color-gold: #c5a059;          /* Oro cálido satinado */
-    --color-gold-hover: #ab8641;    /* Oro oscuro para hover */
-    --color-gold-light: #f7f3eb;    /* Fondo oro muy diluido */
-    --color-gold-glow: rgba(197, 160, 89, 0.2);
-    
+    --color-accent: #f4f4f5;
+    /* Blanco para contrastes */
+    --color-gold: #c5a059;
+    /* Oro cálido satinado */
+    --color-gold-hover: #ab8641;
+    /* Oro oscuro para hover */
+    --color-gold-light: #1b1710;
+    /* Fondo oro oscuro diluido */
+    --color-gold-glow: rgba(197, 160, 89, 0.15);
+
     --color-whatsapp: #25D366;
     --color-whatsapp-hover: #20ba59;
 
@@ -39,7 +51,9 @@
 }
 
 /* Reset y Estilos Globales */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -47,7 +61,8 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 16px; /* Base */
+    font-size: 16px;
+    /* Base */
 }
 
 body {
@@ -85,14 +100,14 @@ ul {
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    background-color: var(--color-accent);
+    background-color: #111115;
     color: var(--color-text-light);
     padding: 1.25rem 2.5rem;
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.9rem;
     letter-spacing: 0.15em;
-    border: 1px solid var(--color-accent);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
     transition: var(--transition-smooth);
     position: relative;
@@ -130,6 +145,26 @@ ul {
     transform: translateX(5px);
 }
 
+/* Destello de barrido en hover */
+.btn-solid::after,
+.btn-outline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transform: skewX(-25deg);
+    transition: 0.75s;
+    z-index: 2;
+}
+
+.btn-solid:hover::after,
+.btn-outline:hover::after {
+    left: 150%;
+}
+
 /* Botón Delineado (Outline) */
 .btn-outline {
     display: inline-block;
@@ -144,6 +179,9 @@ ul {
     cursor: pointer;
     text-transform: uppercase;
     transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .btn-outline:hover {
@@ -171,18 +209,18 @@ ul {
     left: 0;
     width: 100%;
     z-index: 100;
-    background-color: rgba(245, 245, 245, 0.8);
+    background-color: rgba(9, 9, 11, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     transition: var(--transition-smooth);
 }
 
 /* Modificación de Header al hacer scroll */
 .main-header.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(9, 9, 11, 0.95);
     padding: 0.5rem 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .header-container {
@@ -240,27 +278,28 @@ ul {
     font-size: 2.3rem;
     letter-spacing: 0.28em;
     line-height: 1;
-    margin-right: -0.28em; /* Compensar espaciado final */
+    margin-right: -0.28em;
+    /* Compensar espaciado final */
     text-transform: uppercase;
     display: inline-block;
     position: relative;
-    
-    /* Efecto Metálico HD Glimmer */
-    background: linear-gradient(120deg, #111 25%, #666 40%, #111 55%, #111 100%);
+
+    /* Efecto Metálico Gold Glimmer */
+    background: linear-gradient(120deg, #c5a059 25%, #f7f3eb 40%, #c5a059 55%, #ab8641 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shineLogo 5s linear infinite;
-    
-    transition: letter-spacing 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
-                margin-right 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                filter 0.5s ease;
+
+    transition: letter-spacing 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        margin-right 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.5s ease;
 }
 
 /* Ajuste del brillo cuando el header tiene fondo oscuro (.scrolled) */
 .main-header.scrolled .logo-text {
-    background: linear-gradient(120deg, #111 25%, #777 42%, #111 58%, #111 100%);
+    background: linear-gradient(120deg, #c5a059 25%, #ffffff 42%, #c5a059 58%, #ab8641 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -405,7 +444,8 @@ ul {
 
 .hero-image {
     width: 100%;
-    height: 115%; /* Un poco más alto para soportar el desplazamiento de parallax */
+    height: 115%;
+    /* Un poco más alto para soportar el desplazamiento de parallax */
     object-fit: cover;
     filter: grayscale(10%) contrast(105%);
     transition: filter 0.4s ease;
@@ -461,7 +501,7 @@ ul {
 }
 
 .service-card {
-    background-color: var(--color-bg-darker);
+    background-color: var(--color-bg-white);
     border: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
@@ -470,7 +510,8 @@ ul {
 
 .service-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--color-gold);
+    box-shadow: 0 15px 35px var(--color-gold-glow);
 }
 
 .service-image-box {
@@ -639,18 +680,18 @@ ul {
     margin-bottom: 1rem;
     text-transform: uppercase;
     display: inline-block;
-    
+
     /* Glimmer Metálico Blanco/Plata */
     background: linear-gradient(120deg, #fff 25%, #888 40%, #fff 55%, #fff 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shineLogo 5s linear infinite;
-    
-    transition: letter-spacing 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
-                margin-right 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                filter 0.5s ease;
+
+    transition: letter-spacing 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        margin-right 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.5s ease;
 }
 
 .footer-logo:hover {
@@ -764,9 +805,11 @@ ul {
     0% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
     }
+
     70% {
         box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
     }
@@ -812,7 +855,7 @@ ul {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scroll-reveal.revealed {
@@ -965,18 +1008,20 @@ ul {
 }
 
 .product-card {
-    background: var(--color-text-light);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: var(--color-bg-white);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: var(--transition-smooth);
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .product-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
-    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px var(--color-gold-glow);
+    border-color: var(--color-gold);
 }
 
 .product-image-box {
@@ -1135,9 +1180,9 @@ ul {
 .products-carousel-wrapper {
     overflow: hidden;
     width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    background: var(--color-text-light);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--color-bg-white);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .products-carousel-track {
@@ -1164,9 +1209,9 @@ ul {
     transform: translateY(-50%);
     width: 44px;
     height: 44px;
-    background-color: var(--color-text-light);
+    background-color: var(--color-bg-white);
     color: var(--color-text-dark);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1174,13 +1219,13 @@ ul {
     cursor: pointer;
     z-index: 10;
     transition: var(--transition-smooth);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .carousel-control:hover {
-    background-color: var(--color-text-dark);
+    background-color: var(--color-gold);
     color: var(--color-text-light);
-    border-color: var(--color-text-dark);
+    border-color: var(--color-gold);
 }
 
 .carousel-control.prev {
@@ -1203,13 +1248,13 @@ ul {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.2);
     cursor: pointer;
     transition: var(--transition-smooth);
 }
 
 .indicator.active {
-    background-color: var(--color-text-dark);
+    background-color: var(--color-gold);
     transform: scale(1.2);
 }
 
@@ -1225,32 +1270,968 @@ ul {
         padding: 0;
         max-width: 100%;
     }
-    
+
     .carousel-control {
         width: 38px;
         height: 38px;
     }
-    
+
     .carousel-control.prev {
         left: 5px;
     }
-    
+
     .carousel-control.next {
         right: 5px;
     }
 }
 
 /* Efectos de Revelado Escalonado (Stagger Reveal) */
-.services-grid .service-card:nth-child(1) { transition-delay: 0.05s; }
-.services-grid .service-card:nth-child(2) { transition-delay: 0.15s; }
-.services-grid .service-card:nth-child(3) { transition-delay: 0.25s; }
-.services-grid .service-card:nth-child(4) { transition-delay: 0.35s; }
+/* Efectos de Revelado Escalonado (Stagger Reveal) */
+.services-grid .service-card:nth-child(1) {
+    transition-delay: 0.05s;
+}
 
-.gallery-grid .gallery-item:nth-child(1) { transition-delay: 0.05s; }
-.gallery-grid .gallery-item:nth-child(2) { transition-delay: 0.15s; }
-.gallery-grid .gallery-item:nth-child(3) { transition-delay: 0.25s; }
-.gallery-grid .gallery-item:nth-child(4) { transition-delay: 0.35s; }
-.gallery-grid .gallery-item:nth-child(5) { transition-delay: 0.45s; }
-.gallery-grid .gallery-item:nth-child(6) { transition-delay: 0.55s; }
-.gallery-grid .gallery-item:nth-child(7) { transition-delay: 0.65s; }
-.gallery-grid .gallery-item:nth-child(8) { transition-delay: 0.75s; }
+.services-grid .service-card:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.services-grid .service-card:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+.services-grid .service-card:nth-child(4) {
+    transition-delay: 0.35s;
+}
+
+.gallery-grid .gallery-item:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.gallery-grid .gallery-item:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.gallery-grid .gallery-item:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+.gallery-grid .gallery-item:nth-child(4) {
+    transition-delay: 0.35s;
+}
+
+.gallery-grid .gallery-item:nth-child(5) {
+    transition-delay: 0.45s;
+}
+
+.gallery-grid .gallery-item:nth-child(6) {
+    transition-delay: 0.55s;
+}
+
+.gallery-grid .gallery-item:nth-child(7) {
+    transition-delay: 0.65s;
+}
+
+.gallery-grid .gallery-item:nth-child(8) {
+    transition-delay: 0.75s;
+}
+
+/* ==========================================================================
+   Mejoras Estéticas y de Movimiento (Nuevos Componentes)
+   ========================================================================== */
+
+/* Precios en los Servicios */
+.service-price {
+    font-family: var(--font-heading);
+    color: var(--color-gold);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    display: inline-block;
+    letter-spacing: 0.05em;
+}
+
+/* Efectos de Galería con Cursor Apuntador */
+.gallery-item {
+    cursor: pointer;
+}
+
+/* Blobs de Fondo Decorativos en Movimiento */
+.glow-blob {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.08) 0%, rgba(197, 160, 89, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(40px);
+    animation: driftBlob 20s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+    top: 15%;
+    left: -100px;
+}
+
+.blob-2 {
+    bottom: 25%;
+    right: -100px;
+    animation-delay: -5s;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.06) 0%, rgba(197, 160, 89, 0) 70%);
+}
+
+@keyframes driftBlob {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(80px, 50px) scale(1.15);
+    }
+}
+
+/* ==========================================================================
+   Sección de Testimonios (Carrusel Premium)
+   ========================================================================== */
+.testimonials-section {
+    background-color: var(--color-bg-darker);
+    padding: var(--section-padding);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: 4rem auto 0 auto;
+    padding: 0 1.5rem;
+}
+
+.testimonials-slider-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+.testimonials-slider-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+}
+
+.testimonial-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.testimonial-card {
+    background-color: var(--color-bg-white);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 3.5rem;
+    text-align: center;
+    border-radius: 0;
+    transition: var(--transition-smooth);
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-card:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 15px 35px var(--color-gold-glow);
+}
+
+.testimonial-stars {
+    color: var(--color-gold);
+    font-size: 1.25rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-content {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--color-text-dark);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.author-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    font-style: normal;
+}
+
+.author-status {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+#testimonialsPrev {
+    left: -50px;
+}
+
+#testimonialsNext {
+    right: -50px;
+}
+
+@media (max-width: 900px) {
+    #testimonialsPrev {
+        left: -15px;
+    }
+
+    #testimonialsNext {
+        right: -15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .testimonial-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .testimonial-content {
+        font-size: 1rem;
+    }
+
+    #testimonialsPrev {
+        left: 5px;
+        bottom: -4.5rem;
+        top: auto;
+        transform: none;
+    }
+
+    #testimonialsNext {
+        right: 5px;
+        bottom: -4.5rem;
+        top: auto;
+        transform: none;
+    }
+
+    .testimonials-slider-container {
+        margin-bottom: 4.5rem;
+    }
+}
+
+/* ==========================================================================
+   Lightbox Modal (Efecto Galería Premium)
+   ========================================================================== */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 5, 7, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content-wrapper {
+    position: relative;
+    max-width: 85%;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lightbox-modal.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-caption {
+    margin-top: 1.5rem;
+    color: var(--color-text-dark);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: var(--color-text-dark);
+    font-size: 3rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    z-index: 1010;
+    line-height: 1;
+}
+
+.lightbox-close:hover {
+    color: var(--color-gold);
+    transform: scale(1.1);
+}
+
+.lightbox-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-dark);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    z-index: 1005;
+}
+
+.lightbox-control:hover {
+    background-color: var(--color-gold);
+    color: var(--color-text-light);
+    border-color: var(--color-gold);
+}
+
+.lightbox-control.prev {
+    left: 2rem;
+}
+
+.lightbox-control.next {
+    right: 2rem;
+}
+
+@media (max-width: 768px) {
+    .lightbox-control {
+        width: 40px;
+        height: 40px;
+        top: auto;
+        bottom: 2rem;
+        transform: none;
+    }
+
+    .lightbox-control.prev {
+        left: 25%;
+    }
+
+    .lightbox-control.next {
+        right: 25%;
+    }
+
+    .lightbox-close {
+        top: 1rem;
+        right: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   Botón Flotante de WhatsApp
+   ========================================================================== */
+.whatsapp-floating {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 58px;
+    height: 58px;
+    background-color: var(--color-whatsapp, #25D366);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+    z-index: 995;
+    transition: var(--transition-smooth);
+}
+
+.whatsapp-floating:hover {
+    background-color: var(--color-whatsapp-hover, #20ba59);
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   MACCIELL AI - Estilos del Agente de Inteligencia Artificial
+   ========================================================================== */
+.ai-agent-container {
+    position: fixed;
+    bottom: 92px;
+    right: 24px;
+    z-index: 998;
+    font-family: var(--font-body);
+}
+
+/* Launcher Button */
+.ai-agent-launcher {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a1a20 0%, #0d0d10 100%);
+    border: 1.5px solid var(--color-gold);
+    color: var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--color-gold-glow);
+    transition: var(--transition-smooth);
+    outline: none;
+}
+
+.ai-agent-launcher:hover {
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(197, 160, 89, 0.35);
+    border-color: #dfb96c;
+}
+
+.ai-agent-launcher.chat-open {
+    background: var(--color-gold);
+    color: #09090b;
+    transform: scale(0.95);
+}
+
+.ai-launcher-glow {
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.4) 0%, transparent 70%);
+    opacity: 0.6;
+    animation: aiPulseGlow 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes aiPulseGlow {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.18); opacity: 0.8; }
+}
+
+.ai-launcher-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--color-gold);
+    color: #09090b;
+    font-size: 0.62rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    padding: 2px 6px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.05em;
+}
+
+/* Tooltip */
+.ai-launcher-tooltip {
+    position: absolute;
+    right: calc(100% + 14px);
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    background: rgba(18, 18, 22, 0.95);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    color: var(--color-text-dark);
+    padding: 0.6rem 1rem;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: var(--transition-smooth);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ai-launcher-tooltip strong {
+    color: var(--color-gold);
+}
+
+.ai-tooltip-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+.ai-agent-launcher:hover .ai-launcher-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* Chat Modal Window */
+.ai-agent-modal {
+    position: fixed;
+    bottom: 160px;
+    right: 24px;
+    width: 380px;
+    max-width: calc(100vw - 32px);
+    height: 560px;
+    max-height: calc(100vh - 180px);
+    background: #0d0d11;
+    border: 1px solid rgba(197, 160, 89, 0.28);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 999;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(197, 160, 89, 0.12);
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.96);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ai-agent-modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Chat Header */
+.ai-chat-header {
+    background: linear-gradient(180deg, #17171d 0%, #111116 100%);
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ai-header-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ai-avatar-box {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #09090b;
+    border: 1.5px solid var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.ai-status-indicator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #22c55e;
+    border: 2px solid #09090b;
+    border-radius: 50%;
+}
+
+.ai-header-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.ai-header-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    letter-spacing: 0.05em;
+}
+
+.ai-header-subtitle {
+    font-size: 0.72rem;
+    color: var(--color-gold);
+    font-weight: 500;
+}
+
+.ai-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ai-header-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-muted);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.ai-header-btn:hover {
+    background: rgba(197, 160, 89, 0.2);
+    color: var(--color-gold);
+    border-color: var(--color-gold);
+}
+
+/* Chat Body */
+.ai-chat-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    scroll-behavior: smooth;
+}
+
+.ai-chat-body::-webkit-scrollbar {
+    width: 5px;
+}
+
+.ai-chat-body::-webkit-scrollbar-thumb {
+    background: rgba(197, 160, 89, 0.2);
+    border-radius: 10px;
+}
+
+/* Messages */
+.ai-message {
+    display: flex;
+    gap: 10px;
+    max-width: 92%;
+    animation: aiMsgIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes aiMsgIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.ai-agent-msg {
+    align-self: flex-start;
+}
+
+.ai-user-msg {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.ai-msg-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #18181d;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.ai-msg-bubble {
+    padding: 0.85rem 1rem;
+    border-radius: 16px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.ai-agent-msg .ai-msg-bubble {
+    background: #16161c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--color-text-dark);
+    border-top-left-radius: 4px;
+}
+
+.ai-user-msg .ai-msg-bubble {
+    background: linear-gradient(135deg, var(--color-gold) 0%, #aa853c 100%);
+    color: #09090b;
+    font-weight: 500;
+    border-top-right-radius: 4px;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.25);
+}
+
+.ai-cuts-list {
+    margin: 8px 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.ai-cuts-list li {
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+}
+
+.ai-product-suggestion {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(197, 160, 89, 0.08);
+    border: 1px dashed rgba(197, 160, 89, 0.3);
+    border-radius: 10px;
+    font-size: 0.82rem;
+}
+
+.ai-card-cta {
+    margin-top: 12px;
+}
+
+.ai-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-whatsapp-agent {
+    background-color: var(--color-whatsapp, #25D366);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-agent:hover {
+    background-color: var(--color-whatsapp-hover, #20ba59);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+/* In-Chat Product Card */
+.ai-product-card {
+    background: #1a1a22;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.ai-prod-details {
+    flex: 1;
+}
+
+.ai-prod-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 2px;
+}
+
+.ai-prod-desc {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+
+.ai-prod-price {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-gold);
+}
+
+.ai-prod-buy-btn {
+    background: var(--color-gold);
+    color: #09090b;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: var(--transition-fast);
+}
+
+.ai-prod-buy-btn:hover {
+    background: #dfb96c;
+    transform: scale(1.05);
+}
+
+/* Typing Indicator */
+.typing-bubble {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0.75rem 1rem;
+}
+
+.typing-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-gold);
+    border-radius: 50%;
+    animation: typingBounce 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typingBounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Chat Footer & Quick Replies */
+.ai-chat-footer {
+    background: #111116;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ai-quick-replies {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+}
+
+.ai-quick-replies::-webkit-scrollbar {
+    display: none;
+}
+
+.ai-chip-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    color: var(--color-text-dark);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transition-fast);
+}
+
+.ai-chip-btn:hover {
+    background: rgba(197, 160, 89, 0.15);
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+}
+
+/* Input Form */
+.ai-input-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ai-text-input {
+    flex: 1;
+    background: #09090b;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 0.65rem 0.9rem;
+    color: var(--color-text-dark);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.ai-text-input:focus {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+}
+
+.ai-text-input::placeholder {
+    color: rgba(161, 161, 170, 0.6);
+}
+
+.ai-send-btn {
+    background: var(--color-gold);
+    color: #09090b;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.ai-send-btn:hover {
+    background: #dfb96c;
+    transform: scale(1.05);
+}
+
+/* Responsive Modal Behavior */
+@media (max-width: 520px) {
+    .ai-agent-container {
+        bottom: 84px;
+        right: 16px;
+    }
+
+    .whatsapp-floating {
+        bottom: 16px;
+        right: 16px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .ai-agent-launcher {
+        width: 52px;
+        height: 52px;
+    }
+
+    .ai-agent-modal {
+        right: 10px;
+        left: 10px;
+        width: calc(100vw - 20px);
+        bottom: 76px;
+        height: 75vh;
+        max-height: 540px;
+    }
+}
